@@ -5,17 +5,12 @@ from educhain import Educhain, LLMConfig
 from dotenv import load_dotenv
 # Fetch the GROQ API key from the environment
 load_dotenv()  
-api_key = os.getenv("GROQ_API_KEY")
-if not api_key:
-    st.error("Error: GROQ_API_KEY is not set in the environment. Please configure it to proceed.")
-else:
-    os.environ["OPENAI_API_KEY"] = api_key  # Ensure the OPENAI_API_KEY environment variable is set
 
 # Initialize the ChatOpenAI model with Groq API configuration
 llama3_groq = ChatOpenAI(
     model="llama3-70b-8192",  # The model you want to use
     openai_api_base="https://api.groq.com/openai/v1",  # Custom API base for Groq
-    openai_api_key=api_key  # The API key for accessing the Groq service
+    openai_api_key=os.getenv("GROQ_API_KEY")  # The API key for accessing the Groq service
 )
 
 flash_config = LLMConfig(custom_model="llama3-70b-8192")
