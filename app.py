@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from langchain_openai import ChatOpenAI
 from educhain import Educhain, LLMConfig
-
+from dotenv import load_dotenv
 # Fetch the GROQ API key from the environment
 load_dotenv()  
 api_key = os.getenv("GROQ_API_KEY")
