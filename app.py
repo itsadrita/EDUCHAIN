@@ -4,6 +4,7 @@ from langchain_openai import ChatOpenAI
 from educhain import Educhain, LLMConfig
 
 # Fetch the GROQ API key from the environment
+load_dotenv()  
 api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
     st.error("Error: GROQ_API_KEY is not set in the environment. Please configure it to proceed.")
